@@ -10,17 +10,12 @@ import com.zhaks.balym.util.MainDiffUtil
 
 class DataListAdapter : RecyclerView.Adapter<DataListAdapter.DataListViewHolder>() {
 
-    private val dataList = mutableListOf<Data>()
+    val dataList = mutableListOf<Data>()
 
-    class DataListViewHolder(val binding: DataCardBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class DataListViewHolder(val binding: DataCardBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(data: Data) {
             binding.data = data
             binding.executePendingBindings()
-
-            binding.card.setOnLongClickListener {
-                binding.card.isChecked = !binding.card.isChecked
-                true
-            }
         }
     }
 

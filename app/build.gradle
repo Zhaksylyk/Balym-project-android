@@ -86,4 +86,7 @@ dependencies {
 
     // EditText formatter
     implementation 'ru.egslava:MaskedEditText:1.0.5'
+
+    // RecyclerView Animator
+    implementation 'jp.wasabeef:recyclerview-animators:3.0.0'
 }
