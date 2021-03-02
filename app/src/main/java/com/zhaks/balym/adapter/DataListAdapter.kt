@@ -7,8 +7,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.zhaks.balym.data.model.Data
 import com.zhaks.balym.databinding.DataCardBinding
 import com.zhaks.balym.util.MainDiffUtil
+import com.zhaks.balym.view.OnSelectItem
 
-class DataListAdapter : RecyclerView.Adapter<DataListAdapter.DataListViewHolder>() {
+class DataListAdapter(val iOnSelectItem: OnSelectItem) : RecyclerView.Adapter<DataListAdapter.DataListViewHolder>() {
 
     val dataList = mutableListOf<Data>()
 
@@ -16,6 +17,10 @@ class DataListAdapter : RecyclerView.Adapter<DataListAdapter.DataListViewHolder>
         fun bind(data: Data) {
             binding.data = data
             binding.executePendingBindings()
+
+            binding.card.setOnClickListener {
+                iOnSelectItem.selectItem(data)
+            }
         }
     }
 
